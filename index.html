@@ -1627,7 +1627,7 @@
           var video = document.getElementById('heroVideo');
           if (!video) return;
           var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-          var useMobile = window.matchMedia('(max-width: 767px)').matches || (connection && connection.saveData);
+          var useMobile = !!(connection && connection.saveData);
           video.src = useMobile ? video.dataset.mobileSrc : video.dataset.desktopSrc;
           video.load();
         })();
